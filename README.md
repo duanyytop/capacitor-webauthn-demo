@@ -1,6 +1,6 @@
 # @joyid/capacitor-native-passkey
 
-The capaictor plugins of native passkey for Android and iOS
+The capacitor plugins of native passkey for Android and iOS
 
 ## Install
 
