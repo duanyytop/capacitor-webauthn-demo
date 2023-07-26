@@ -1,3 +1,17 @@
+import {
+  PublicKeyCredentialCreationOptionsJSON,
+  PublicKeyCredentialRequestOptionsJSON,
+  RegistrationResponseJSON,
+  AuthenticationResponseJSON,
+} from './type';
+
 export interface WebAuthnPlugin {
-  echo(options: { value: string }): Promise<{ value: string }>;
+  isWebAuthnAvailable(): Promise<{ value: boolean }>;
+  create(
+    publicKeyCredentialCreationOptionsJSON: PublicKeyCredentialCreationOptionsJSON,
+  ): Promise<RegistrationResponseJSON>;
+  get(
+    requestOptionsJSON: PublicKeyCredentialRequestOptionsJSON,
+    useBrowserAutofill?: boolean,
+  ): Promise<AuthenticationResponseJSON>;
 }
