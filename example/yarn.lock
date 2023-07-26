@@ -497,6 +497,11 @@
     untildify "^4.0.0"
     wrap-ansi "^7.0.0"
 
+"@joyid/capacitor-native-passkey@^0.0.1":
+  version "0.0.1"
+  resolved "https://registry.yarnpkg.com/@joyid/capacitor-native-passkey/-/capacitor-native-passkey-0.0.1.tgz#53e7db2ac45dd3d74b58b5dbaac5a7eb60e2bbde"
+  integrity sha512-MLp65thq3p6sUDfY57lIVTTakLfCeyxW+Rbyk7ParOFuvlfxOaBl4f7d6BrwMopgmcS0lc1YBmTM2enZbMBe9Q==
+
 "@jridgewell/gen-mapping@^0.3.0", "@jridgewell/gen-mapping@^0.3.2":
   version "0.3.3"
   resolved "https://registry.yarnpkg.com/@jridgewell/gen-mapping/-/gen-mapping-0.3.3.tgz#7e02e6eb5df901aaedb08514203b096614024098"

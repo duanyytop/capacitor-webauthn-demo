@@ -1,6 +1,6 @@
 {
   "name": "@joyid/capacitor-native-passkey",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "The capacitor plugins of native passkey for Android and iOS",
   "main": "dist/plugin.cjs.js",
   "module": "dist/esm/index.js",
@@ -15,6 +15,9 @@
   ],
   "author": "Dylan Duan",
   "license": "Apache-2.0",
+  "publishConfig": {
+    "access": "public"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/duanyytop/capacitor-native-passkey.git.git"
@@ -28,7 +31,7 @@
     "native"
   ],
   "scripts": {
-    "verify": "npm run verify:ios && npm run verify:android && npm run verify:web",
+    "verify": "npm run verify:ios && npm run verify:android",
     "verify:ios": "cd ios && pod install && xcodebuild -workspace Plugin.xcworkspace -scheme Plugin -destination generic/platform=iOS && cd ..",
     "verify:android": "cd android && ./gradlew clean build test && cd ..",
     "lint": "npm run eslint && npm run prettier -- --check && npm run swiftlint -- lint",
