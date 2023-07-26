@@ -3,7 +3,7 @@ import {
   PublicKeyCredentialRequestOptionsJSON,
   RegistrationResponseJSON,
   AuthenticationResponseJSON,
-} from './type';
+} from '@simplewebauthn/typescript-types';
 
 export interface WebAuthnPlugin {
   isWebAuthnAvailable(): Promise<{ value: boolean }>;
