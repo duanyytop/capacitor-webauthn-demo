@@ -1,71 +1,30 @@
-ext {
-    junitVersion = project.hasProperty('junitVersion') ? rootProject.ext.junitVersion : '4.13.2'
-    androidxAppCompatVersion = project.hasProperty('androidxAppCompatVersion') ? rootProject.ext.androidxAppCompatVersion : '1.6.1'
-    androidxJunitVersion = project.hasProperty('androidxJunitVersion') ? rootProject.ext.androidxJunitVersion : '1.1.5'
-    androidxEspressoCoreVersion = project.hasProperty('androidxEspressoCoreVersion') ? rootProject.ext.androidxEspressoCoreVersion : '3.5.1'
-}
+// Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
+    
     repositories {
         google()
         mavenCentral()
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:8.0.0'
+        classpath 'com.google.gms:google-services:4.3.15'
+        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.8.0'
+
+        // NOTE: Do not place your application dependencies here; they belong
+        // in the individual module build.gradle files
     }
 }
 
-apply plugin: 'com.android.library'
+apply from: "variables.gradle"
 
-android {
-    namespace "dev.capacitoy.plugins"
-    compileSdkVersion project.hasProperty('compileSdkVersion') ? rootProject.ext.compileSdkVersion : 33
-    defaultConfig {
-        minSdkVersion project.hasProperty('minSdkVersion') ? rootProject.ext.minSdkVersion : 22
-        targetSdkVersion project.hasProperty('targetSdkVersion') ? rootProject.ext.targetSdkVersion : 33
-        versionCode 1
-        versionName "1.0"
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-    }
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-    }
-    lintOptions {
-        abortOnError false
-    }
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_11
-        targetCompatibility JavaVersion.VERSION_11
+allprojects {
+    repositories {
+        google()
+        mavenCentral()
     }
 }
 
-repositories {
-    google()
-    mavenCentral()
-}
-
-
-dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation project(':capacitor-android')
-    implementation "androidx.appcompat:appcompat:$androidxAppCompatVersion"
-    implementation "androidx.credentials:credentials:1.0.0-alpha06"
-    // optional - needed for credentials support from play services, for devices running
-    // Android 13 and below.
-    implementation "androidx.credentials:credentials-play-services-auth:1.0.0-alpha06"
-    implementation 'androidx.core:core-ktx:1.10.1'
-    implementation platform('org.jetbrains.kotlin:kotlin-bom:1.8.0')
-
-    def coroutine_version = '1.5.0'
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutine_version"
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutine_version"
-    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-play-services:$coroutine_version"
-
-
-    testImplementation "junit:junit:$junitVersion"
-    androidTestImplementation "androidx.test.ext:junit:$androidxJunitVersion"
-    androidTestImplementation "androidx.test.espresso:espresso-core:$androidxEspressoCoreVersion"
+task clean(type: Delete) {
+    delete rootProject.buildDir
 }

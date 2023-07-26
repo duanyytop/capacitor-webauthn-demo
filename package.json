@@ -1,86 +1,32 @@
 {
-  "name": "@joyid/capacitor-native-passkey",
-  "version": "0.0.3",
-  "description": "The capacitor plugins of native passkey for Android and iOS",
-  "main": "dist/plugin.cjs.js",
-  "module": "dist/esm/index.js",
-  "types": "dist/esm/index.d.ts",
-  "unpkg": "dist/plugin.js",
-  "files": [
-    "android/src/main/",
-    "android/build.gradle",
-    "dist/",
-    "ios/Plugin/",
-    "JoyidCapacitorNativePasskey.podspec"
-  ],
-  "author": "Dylan Duan",
-  "license": "Apache-2.0",
-  "publishConfig": {
-    "access": "public"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/duanyytop/capacitor-native-passkey.git.git"
-  },
-  "bugs": {
-    "url": "https://github.com/duanyytop/capacitor-native-passkey.git/issues"
-  },
-  "keywords": [
-    "capacitor",
-    "plugin",
-    "native"
-  ],
+  "name": "webauthn-demo",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "verify": "npm run verify:ios && npm run verify:android && npm run verify:web",
-    "verify:ios": "cd ios && pod install && xcodebuild -workspace Plugin.xcworkspace -scheme Plugin -destination generic/platform=iOS && cd ..",
-    "verify:web": "npm run build",
-    "verify:android": "cd android && ./gradlew clean build test && cd ..",
-    "lint": "npm run eslint && npm run prettier -- --check && npm run swiftlint -- lint",
-    "fmt": "npm run eslint -- --fix && npm run prettier -- --write && npm run swiftlint -- --fix --format",
-    "eslint": "eslint . --ext ts",
-    "prettier": "prettier \"**/*.{css,html,ts,js,java}\"",
-    "swiftlint": "node-swiftlint",
-    "docgen": "docgen --api WebAuthnPlugin --output-readme README.md --output-json dist/docs.json",
-    "build": "npm run clean && npm run docgen && tsc && rollup -c rollup.config.js",
-    "clean": "rimraf ./dist",
-    "watch": "tsc --watch",
-    "prepublishOnly": "npm run build"
-  },
-  "devDependencies": {
-    "@capacitor/android": "^5.2.2",
-    "@capacitor/cli": "^5.2.2",
-    "@capacitor/core": "^5.0.0",
-    "@capacitor/docgen": "^0.0.18",
-    "@capacitor/ios": "^5.2.2",
-    "@ionic/eslint-config": "^0.3.0",
-    "@ionic/prettier-config": "^1.0.1",
-    "@ionic/swiftlint-config": "^1.1.2",
-    "eslint": "^7.11.0",
-    "prettier": "~2.3.0",
-    "prettier-plugin-java": "~1.0.2",
-    "rimraf": "^3.0.2",
-    "rollup": "^2.32.0",
-    "swiftlint": "^1.0.1",
-    "typescript": "~4.1.5"
-  },
-  "peerDependencies": {
-    "@capacitor/core": "^5.0.0"
-  },
-  "prettier": "@ionic/prettier-config",
-  "swiftlint": "@ionic/swiftlint-config",
-  "eslintConfig": {
-    "extends": "@ionic/eslint-config/recommended"
-  },
-  "capacitor": {
-    "ios": {
-      "src": "ios"
-    },
-    "android": {
-      "src": "android"
-    }
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview"
   },
   "dependencies": {
-    "@simplewebauthn/browser": "^7.2.0",
-    "@simplewebauthn/typescript-types": "^7.0.0"
+    "@capacitor/android": "^5.2.2",
+    "@capacitor/core": "^5.2.2",
+    "@capacitor/ios": "^5.2.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "^5.2.2",
+    "@types/react": "^18.2.16",
+    "@types/react-dom": "^18.2.7",
+    "@typescript-eslint/eslint-plugin": "^6.2.0",
+    "@typescript-eslint/parser": "^6.2.0",
+    "@vitejs/plugin-react": "^4.0.3",
+    "eslint": "^8.45.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.3",
+    "typescript": "^5.1.6",
+    "vite": "^4.4.7"
   }
 }
